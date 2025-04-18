@@ -3,8 +3,9 @@
 
 https://rom98759.github.io/Philosophers-visualizer/
 
+##https://pages.mtu.edu/~shene/NSF-3/e-Book/index.html
 
-###SSH
+##SSH
 cat ~/.ssh/id_ed25519
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
