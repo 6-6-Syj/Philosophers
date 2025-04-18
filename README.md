@@ -1,6 +1,10 @@
 # Philosophers
 
 
+https://rom98759.github.io/Philosophers-visualizer/
+
+
+###SSH
 cat ~/.ssh/id_ed25519
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
