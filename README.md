@@ -17,3 +17,72 @@ AAAED5JWuQSd2yS9PSOUE6xAM5hKQJvR81GXXQ4NVwkbUWZcrhilUK20fGuWyhWMLYqDnf
 
 cat ~/.ssh/id_ed25519.pub
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMrhilUK20fGuWyhWMLYqDnf6puWnC9z0r5IYQcoBs00 magand.jessy@outllok.fr
+
+
+|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|
+|																								|
+|										TESTS OK												|
+|																								|
+|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|
+|																								|
+|																								|
+|																								|
+| 		./philo 2 800 200 200						personne ne meurt				✅​			|
+|																								|
+| 		./philo 5 800 200 200						personne ne meurt				✅​			|
+|																								|
+| 		./philo 4 410 200 200						personne ne meurt				✅​			|
+|																								|
+| 		./philo 4 500 200 1	.2						argument invalide				✅​			|
+|																								|
+| 		./philo 4 0 200 200							argument invalide				✅​			|
+|																								|
+| 		./philo 4 -500 200 200						argument invalide				✅​			|
+|																								|
+| 		./philo 4 2147483647 200 200				personne ne meurt				✅​			|
+|																								|
+| 		./philo 4 214748364732 200 200				argument invalide				✅​			|
+|																								|
+| 		./philo 1 200 200 200				philo 1 ne prend qu'une fourchette		✅​			|
+|												et meurt au bout de 200 ms						|
+|																								|
+| 		./philo 4 310 200 200					un philo meurt, a 310 ms 			✅​			|
+|																								|
+| 		./philo 4 500 200 2147483647		  un philo meurt au bout de 500 ms		✅​			|
+|																								|
+| 		./philo 4 200 210 20				un philo meurt, il faut afficher la 	✅		   |
+|													mort avant 210 ms							|
+|																								|
+| 		./philo 5 800 200 200 7 		simulation end when each philo ate 7x		✅			|
+|																								|
+|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|
+|																								|
+|										TO FIX													|
+|																								|
+|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|
+|																								|
+|																								|
+
+✅​
+
+NEW PHILO :
+
+|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|
+
+philo: pthread_mutex_lock.c:94: ___pthread_mutex_lock: Assertion `mutex->__data.__owner == 0' failed.
+zsh: IOT instruction (core dumped)  ./philo 3 450 200 200 2
+
+			-> Fixed " if (!pthread_join) " => del " ! "
+				cuz tread_join/init should return nothing if everything OK
+
+|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|
+
+
+|		philo impair time to sleep > time to eat										✅
+
+|		while eat bad timing death														✅
+
+|		Need to handle when sometimes steals each other forks							✅
+
+|		pthread_join quand pthread_create fail (join nb xready)							✅
+						Pas encore bon
